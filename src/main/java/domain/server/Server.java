@@ -40,16 +40,7 @@ public class Server {
         if (app == null) {
             PrettyProperties.getInstance();
             Integer port = Integer.parseInt(System.getProperty("port", "8080"));
-            app = Javalin.create(config()).start(port);
-            initTemplateEngine();
-            AppHandlers.applyHandlers(app);
-            Router.init();
 
-            if (Boolean.parseBoolean(PrettyProperties.getInstance().propertyFromName("dev_mode"))) {
-                Initializer.init();
-            }
-
-            // Configuración de Hibernate
             if (entityManagerFactory == null) {
                 Configuration configuration = new Configuration();
                 configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://dpg-cl8jutf6e7vc73a76bq0-a.oregon-postgres.render.com:5432/persistenciatp");
@@ -60,6 +51,15 @@ public class Server {
 
                 entityManagerFactory = Persistence.createEntityManagerFactory("simple-persistence-unit", configuration.getProperties());
             }
+            app = Javalin.create(config()).start(port);
+            initTemplateEngine();
+            AppHandlers.applyHandlers(app);
+            Router.init();
+
+            if (Boolean.parseBoolean(PrettyProperties.getInstance().propertyFromName("dev_mode"))) {
+                Initializer.init();
+            }
+
         }
     }
 
