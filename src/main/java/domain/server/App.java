@@ -64,7 +64,7 @@ public static EntityManagerFactory createEntityManagerFactory() throws Exception
             }
         }
         String value2;
-        value2 = "postgres://dpg-cl8jutf6e7vc73a76bq0-a.oregon-postgres.render.com:5432/persistenciatp";
+        value2 = "jdbc:mysql://dpg-cl8jutf6e7vc73a76bq0-a.oregon-postgres.render.com:5432/persistenciatp";
         configOverrides.put("javax.persistence.jdbc.url", value2);
         System.out.println("Config overrides ----------------------");
         for (String key : configOverrides.keySet()) {
