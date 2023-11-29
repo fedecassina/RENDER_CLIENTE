@@ -33,15 +33,15 @@ public class SesionesController extends Controller implements ICrudViewsHandler 
 
     @Override
     public void show(Context context) {
-        context.render("/sesiones/inicio-sesion.hbs");
+        context.render("sesiones/inicio-sesion.hbs");
     }
 
     public void showIncorrecto(Context context) {
-        context.render("/sesiones/inicio-sesion-incorrecto.hbs");
+        context.render("sesiones/inicio-sesion-incorrecto.hbs");
     }
     @Override
     public void create(Context context) {
-        context.render("/sesiones/registro.hbs");
+        context.render("sesiones/registro.hbs");
     }
 
     @Override
