@@ -45,12 +45,12 @@ public static EntityManagerFactory createEntityManagerFactory() throws Exception
                     String username = dbUri.getUserInfo().split(":")[0];
                     String password = dbUri.getUserInfo().split(":")[1];
                     //javax.persistence.jdbc.url=jdbc:postgresql://localhost/dblibros
-                    value = "jdbc:mysql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();// + "?sslmode=require";
+                    //value = "jdbc:mysql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();// + "?sslmode=require";
+                    value = "postgres://tp:nr8cZK5SIFz5RJBFpD7NkuckvUgGLSi1@dpg-cl8jutf6e7vc73a76bq0-a.oregon-postgres.render.com:5432/persistenciatp";
                     configOverrides.put("javax.persistence.jdbc.url", value);
                     configOverrides.put("javax.persistence.jdbc.user", username);
                     configOverrides.put("javax.persistence.jdbc.password", password);
                     configOverrides.put("javax.persistence.jdbc.driver", "com.mysql.jdbc.Driver");
-
                     //  configOverrides.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
                 }
                 // no se pueden poner variables de entorno con "." en la key
