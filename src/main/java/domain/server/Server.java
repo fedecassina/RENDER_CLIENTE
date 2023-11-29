@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.function.Consumer;
 import java.text.SimpleDateFormat;
+import org.hibernate.cfg.Configuration;
 
 public class Server {
     private static Javalin app = null;
@@ -42,6 +43,12 @@ public class Server {
             if(Boolean.parseBoolean(PrettyProperties.getInstance().propertyFromName("dev_mode"))) {
                 Initializer.init();
             }
+
+            Configuration configuration = new Configuration();
+            configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://dpg-cl8jutf6e7vc73a76bq0-a.oregon-postgres.render.com:5432/persistenciatp");
+            configuration.setProperty("hibernate.connection.username", "tp");
+            configuration.setProperty("hibernate.connection.password", "nr8cZK5SIFz5RJBFpD7NkuckvUgGLSi1");
+
         }
     }
 
