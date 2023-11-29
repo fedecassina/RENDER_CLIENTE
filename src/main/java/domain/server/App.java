@@ -50,7 +50,7 @@ public static EntityManagerFactory createEntityManagerFactory() throws Exception
                     configOverrides.put("javax.persistence.jdbc.url", value);
                     configOverrides.put("javax.persistence.jdbc.user", username);
                     configOverrides.put("javax.persistence.jdbc.password", password);
-                    configOverrides.put("javax.persistence.jdbc.driver", "com.mysql.jdbc.Driver");
+                    configOverrides.put("javax.persistence.jdbc.driver", "org.postgresql.Driver");
                     //  configOverrides.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
                 }
                 // no se pueden poner variables de entorno con "." en la key
