@@ -13,6 +13,9 @@
 
     <dependencySets>
         <dependencySet>
+            <includes>
+                <include>*:*</include>
+            </includes>
             <outputDirectory>/</outputDirectory>
             <unpack>true</unpack>
             <scope>runtime</scope>
