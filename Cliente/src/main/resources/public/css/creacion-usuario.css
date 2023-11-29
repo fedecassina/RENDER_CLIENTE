@@ -1,0 +1,134 @@
+body {
+    background-color: #fffbf2;
+}
+
+.centrado {
+    height: 600px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+}
+
+.padding {
+    padding: 15px 30px 15px 30px;
+}
+
+.sombra-bloques {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.formulario {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.titulo {
+    font-family: 'Poppins', sans-serif;
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.wave-group {
+    position: relative;
+}
+
+.wave-group .input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 16rem;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+}
+
+.wave-group .input:focus {
+    outline: none;
+}
+
+.wave-group .label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    display: flex;
+}
+
+.wave-group .label-char {
+    transition: 0.2s ease all;
+    transition-delay: calc(var(--index) * .05s);
+}
+
+.wave-group .input:focus~label .label-char,
+.wave-group .input:valid~label .label-char {
+    transform: translateY(-20px);
+    font-size: 14px;
+    color: #5264AE;
+}
+
+.wave-group .bar {
+    position: relative;
+    display: block;
+    width: 16rem;
+}
+
+.wave-group .bar:before,
+.wave-group .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.wave-group .bar:before {
+    left: 50%;
+}
+
+.wave-group .bar:after {
+    right: 50%;
+}
+
+.wave-group .input:focus~.bar:before,
+.wave-group .input:focus~.bar:after {
+    width: 50%;
+}
+
+.texto-formulario {
+    font-family: 'Poppins', sans-serif;
+    font-size: large;
+}
+
+.sombra-boton {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.sombra-clic {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.boton {
+    padding: 10px 15px;
+    background-color: #fffbf2;
+    color: #E9B384;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: large;
+    margin-top: 20px;
+}
+
+.btn-close {
+    margin: 10px 0px 0px 10px;
+}

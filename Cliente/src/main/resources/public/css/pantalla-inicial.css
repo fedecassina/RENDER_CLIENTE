@@ -1,0 +1,120 @@
+body {
+    background-color: #fffbf2;
+}
+
+.card {
+    background-color: transparent;
+    border: none;
+}
+
+.titulo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 21px;
+    text-align: center;
+    font-weight: bolder;
+    margin-bottom: 30px;
+    color: #E9B384;
+    text-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.imagen {
+    margin-bottom: 30px;
+}
+
+.texto {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: grey;
+    text-align: center;
+}
+
+.palabra-destacada {
+    color: #A1CCD1;
+    font-weight: bolder;
+}
+
+.card-body {
+    padding: 0px !important;
+}
+
+.sombra-boton {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.boton {
+    padding: 10px 15px;
+    background-color: #E9B384;
+    color: #fffbf2;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: large;
+    margin-top: 0px;
+}
+
+.boton:hover {
+    color: #fffbf2;
+}
+
+.registro,
+.link-registro {
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: grey;
+    text-align: center;
+}
+
+.link-registro:hover {
+    color: #E9B384;
+}
+
+.sombra-clic {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edificio {
+    height: 38px;
+    width: auto;
+}
+
+.margenes {
+    margin-left: 10px;
+}
+
+.animated-image {
+    position: absolute;
+    left: -100%;
+    /* Inicialmente, la imagen estará fuera del área visible a la izquierda */
+    top: 50%;
+    /* Ajusta la posición vertical según tus necesidades */
+    transform: translateY(-50%);
+    animation: slideIn 2s ease-in-out forwards;
+    /* Duración de la animación y función de temporización */
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.contenido {
+    display: flex;
+    align-items: center;
+    /* Alinea verticalmente los elementos */
+}
+
+@keyframes slideIn {
+    0% {
+        left: -100%;
+        /* Inicia desde la izquierda */
+    }
+
+    100% {
+        left: 0;
+        /* Se coloca en su posición inicial */
+    }
+}

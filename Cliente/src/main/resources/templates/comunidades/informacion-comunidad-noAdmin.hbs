@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movilidad360</title>
+    <link rel="icon" type="image/png" href="img/icono-naranja.png">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/comunidad.css">
+    <!-- Tipografía -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/3ed5502ae8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<!-- Contenedor para poner el boton de cerrar -->
+<div class="container contenedor-boton">
+    <div class="row">
+        <div class="col-12">
+            <div class="configuracion">
+                <a href="/comunidades"><i class="fa-solid fa-xmark fa-xl" style="color: #c0c0c0;"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container align-middle container-info-comunidad">
+    <!-- Esto sería la parte de abajo de la pagina, en donde se puede iniciar sesion -->
+    <div class="row">
+        <div class="col-12 d-flex align-items-center justify-content-center centrado">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-12 mt-3 padding sombra-bloques formulario renglon" style="width: 20rem;">
+                    <h1 class="titulo">Comunidad</h1>
+                    <p class="texto-negrita">Nombre: </p>
+                    <p class="texto">{{comunidad.nombre}}</p>
+                    <p class="texto-negrita">Descripción: </p>
+                    <p class="texto">{{comunidad.descripcion}}</p>
+                    <p class="texto-negrita">Creador: </p>
+                    <p class="texto">{{comunidad.creador.nombre}}</p>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <a href="/comunidades/entrar-comunidad/{{comunidad.id}}" class="boton sombra-boton" id="ver-miembros-button">Entrar Comunidad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Javascript -->
+<script src="../Cliente/src/main/resources/public/js/edicion-incidente.js"></script>
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

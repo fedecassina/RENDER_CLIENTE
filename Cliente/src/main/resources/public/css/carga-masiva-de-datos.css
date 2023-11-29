@@ -1,0 +1,157 @@
+body {
+    background-color: #fffbf2;
+}
+
+.btn-close {
+    margin: 10px 0px 0px 10px;
+}
+
+.centrado {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+}
+
+.padding {
+    padding: 30px;
+}
+
+.sombra-bloques {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.formulario {
+    background-color: white;
+    border-radius: 10px;
+    height: 600px;
+}
+
+.renglon {
+    word-wrap: break-word;
+}
+
+.titulo {
+    font-family: 'Poppins', sans-serif;
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.texto {
+    font-family: 'Poppins', sans-serif;
+    font-size: medium;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+/* Estilo para el contenedor de la caja de archivo */
+.caja-archivo {
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    /* Usamos flexbox para centrar verticalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    justify-content: center;
+    /* Centra horizontalmente */
+    margin: 10px;
+    height: 380px;
+    text-align: center;
+    /* Centra el contenido horizontalmente */
+    padding: 3px;
+}
+
+/* Estilo para el contenido dentro de la caja de archivo */
+.caja-archivo .contenido {
+    display: block;
+    /* Cambiado a bloque para que los elementos se muestren uno debajo del otro */
+}
+
+.caja-archivo .texto {
+    margin-bottom: 40px;
+}
+
+/* Estilo para el input de tipo file */
+.caja-archivo input[type="file"] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Estilo para el botón o etiqueta que simula el botón de carga */
+.caja-archivo .boton-carga {
+    color: #A1CCD1;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: large;
+}
+
+/* Estilo para el texto de la etiqueta que muestra el nombre del archivo seleccionado */
+.caja-archivo .nombre-archivo {
+    margin-left: 10px;
+}
+
+/* Estilo para resaltar el botón cuando se pasa el ratón sobre él */
+.caja-archivo .boton-carga:hover {
+    color: #82A8B1;
+}
+
+/* Estilo para resaltar el contenedor cuando se pasa el ratón sobre él */
+.caja-archivo:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.boton {
+    padding: 10px 15px;
+    background-color: #E9B384;
+    color: #fffbf2;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: large;
+    margin-top: 0px;
+}
+
+.boton-subir {
+    margin-right: 10px;
+    margin-left: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: #E9B384;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+.no-efecto.btn-primary {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: inherit !important;
+    box-shadow: none !important;
+}
+
+.sombra-boton {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.sombra-clic {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-boton {
+    height: 35px;
+    padding: 10px;
+}
+
+.contenedor-carga-datos {
+    height: 600px;
+}

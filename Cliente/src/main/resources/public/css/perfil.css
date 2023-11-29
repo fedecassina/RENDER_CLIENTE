@@ -1,0 +1,123 @@
+.barra-navegacion {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #A1CCD1;
+    color: #fff;
+    padding: 10px;
+    z-index: 100;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.iconos {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.navegacion-actual {
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navegacion-no-seleccionado,
+.navegacion-actual {
+    font-family: 'Poppins', sans-serif;
+    font-size: small;
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.contenedor-perfil {
+    height: 120px;
+}
+
+.foto-de-perfil {
+    height: 100px;
+    width: 100px;
+    border: 4px solid #e0e0e0;
+    border-radius: 50px;
+    margin: 10px 10px 0px 0px;
+    float: right;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.nombre {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: xx-large;
+    margin: 30px 0px 0px 10px;
+    color: #E9B384;
+}
+
+.info-adicional {
+    font-family: 'Poppins', sans-serif;
+    font-size: medium;
+    margin: 2px 0px 0px 10px;
+}
+
+.contenedor-boton {
+    height: 40px;
+    padding: 15px;
+}
+
+.configuracion {
+    background-color: #F5F5F5;
+    width: 45px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin: 5px 0px 0px 10px;
+}
+
+.contenedor-categorias {
+    height: 470px;
+    display: flex;
+    align-items: center;
+}
+
+.categoria {
+    height: 115px;
+    margin: 10px;
+    border: solid 4px #E9B384;
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.alto-fila {
+    height: 100%;
+}
+
+.texto-categorias {
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+}
+
+/* Estilo para el enlace */
+a.enlace-sin-estilo {
+    text-decoration: none;
+    /* Elimina el subrayado */
+    cursor: pointer;
+    /* Cambia el cursor al estilo de un enlace */
+    color: inherit;
+    /* Mantiene el color del texto igual al texto circundante */
+    padding: 0;
+}
+
+/* Estilo para el enlace cuando se coloca el cursor encima */
+a.enlace-sin-estilo:hover {
+    text-decoration: none;
+    /* Evita que aparezca un subrayado al pasar el cursor por encima */
+    color: inherit;
+    /* Mantiene el color del texto igual al texto circundante */
+}

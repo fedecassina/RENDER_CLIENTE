@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movilidad360</title>
+    <link rel="icon" type="image/png" href="img/icono-naranja.png">
+    <!-- Handlebars -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/incidentes.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- JS -->
+    <script src="js/incidentes.js"></script>
+    <!-- Tipografía -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/3ed5502ae8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<!-- BARRA DE NAVEGACIÓN SUPERIOR
+    <nav class="navbar bg-body-tertiary d-flex justify-content-between fondoCeleste">
+      <button type="button" class="boton boton-primary ml-3 boton-barra-lateral no-efecto">
+        <img src="img/boton-barra-lateral.png" alt="boton-barra-lateral" class="imagen-boton">
+      </button>
+      <a class="navbar-brand mx-auto navegador" href="pagina-principal.html">Movilidad360</a>
+      <img src="img/usuario-blanco.png" alt="icono-usuario" class="imagen-usuario">
+    </nav> -->
+
+<div class="container">
+    <div class="row contenedor-abierto-cerrado ">
+        <div class="col-12 align-items-center justify-content-center">
+            <ul class="nav nav-pills justify-content-center contenedor-filtros">
+                <li class="nav-item filtro">
+                    <a class="nav-link activo" aria-current="page">Todos</a>
+                </li>
+                <li class="nav-item filtro">
+                    <a class="nav-link inactivo">Abiertos</a>
+                </li>
+                <li class="nav-item filtro">
+                    <a class="nav-link inactivo">Cerrados</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--  CONTENEDOR PARA LOS INCIDENTES -->
+<div class="container">
+    <div class="row contenedor-incidentes">
+        <div class="col-sm-12">
+            <h1 class="titulo-incidentes">Incidentes</h1>
+            <div class="contenedores">
+                {{#each incidentes}}
+                    <!-- CONTENEDOR POR CADA INCIDENTE -->
+                    <div class="row">
+                        <div class="col-10 col-sm-10 texto-incidente">
+                            <div class="descripcion-incidente">{{this.descripcion}}</div>
+                            <div class="info-adicional">Creado por: {{this.persona.nombreDeUsuario}}</div>
+                            <div class="info-adicional">Abierto desde: {{formatDate this.fechaInicio}}</div>
+                            <div class="info-adicional estado">Estado actual: {{#if incidente.abierto}}
+                                <p class="texto">Activo</p>
+                            {{else}}
+                                {{#if this.abierto}}
+                                    <p class="texto">Abierto</p>
+                                {{else}}
+                                    <p class="texto">Cerrado</p>
+                                {{/if}}
+                            {{/if}}</div>
+                        </div>
+                        <div class="col-2 col-sm-2 d-flex justify-content-center align-items-center">
+                            <a href="incidentes/editar/{{this.id}}">
+                                <button type="button" class="boton boton-edicion sombra-boton no-efecto">
+                                    <img src="img/editar.png" alt="boton-edición" class="imagen-edicion">
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- CONTENEDOR POR CADA INCIDENTE -->
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-between">
+            <a href="incidentes/crear-incidente">
+                <button type="button" class="boton boton-agregar no-efecto sombra-boton">Agregar nuevo incidente</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container barra-navegacion">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item iconos">
+                        <a class="nav-link navegacion-no-seleccionado" aria-current="page">
+                            <i class="fa-solid fa-house-circle-exclamation fa-2xl" style="color: #808080;"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item iconos">
+                        <a class="nav-link navegacion-no-seleccionado" href="/perfil">
+                            <i class="fa-solid fa-user fa-2xl" style="color: #ffffff;"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item iconos">
+                        <a class="nav-link navegacion-no-seleccionado" href="/configuracion">
+                            <i class="fa-solid fa-gear fa-2xl" style="color: #ffffff;"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

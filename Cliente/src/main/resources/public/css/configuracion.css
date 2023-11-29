@@ -1,0 +1,95 @@
+.barra-navegacion {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #A1CCD1;
+    color: #fff;
+    padding: 10px;
+    z-index: 100;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.navegacion-actual {
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navegacion-no-seleccionado,
+.navegacion-actual {
+    font-family: 'Poppins', sans-serif;
+    font-size: small;
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.texto-accion {
+    margin-top: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.descripcion {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.info-adicional {
+    font-size: small;
+}
+
+.sombra-boton {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.boton {
+    color: #E9B384;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: medium;
+    margin-top: 12px;
+    background-color: white;
+}
+
+.boton-edicion {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.no-efecto.btn-primary {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: inherit !important;
+    box-shadow: none !important;
+}
+
+.contenedor-accion {
+    padding: 0px 10px 0px 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.contenedor-acciones {
+    overflow-y: auto;
+    max-height: 616px;
+}
+
+.iconos {
+    margin-right: 15px;
+    margin-left: 15px;
+}

@@ -1,0 +1,74 @@
+.contenedor-boton {
+    height: 35px;
+    padding: 10px;
+}
+
+.comunidades {
+    height: 480px;
+    overflow: auto;
+}
+
+.titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+    color: #A1CCD1;
+    margin: 5px 0px 10px 0px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.contenedor-comunidad {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 16px 0px 16px;
+    border: solid 2px #CCCCCC;
+    border-radius: 10px;
+    margin: 10px 5px 15px 5px;
+}
+
+.nombre-comunidad,
+.info-adicional-comunidad {
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+}
+
+.nombre-comunidad {
+    font-size: medium;
+    font-weight: bold;
+    color: #E9B384;
+}
+
+.palabra-destacada {
+    font-weight: bold;
+}
+
+.info-adicional-comunidad {
+    font-size: small;
+}
+
+.boton {
+    padding: 10px 15px;
+    background-color: #fffbf2;
+    color: #E9B384;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: large;
+    margin-top: 0px;
+}
+
+.sombra-boton {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.sombra-clic {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

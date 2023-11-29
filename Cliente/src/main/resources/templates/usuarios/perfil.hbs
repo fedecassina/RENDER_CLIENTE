@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movilidad360</title>
+  <link rel="icon" type="image/png" href="img/icono-naranja.png">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/perfil.css">
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <!-- Fontawesome -->
+  <script src="https://kit.fontawesome.com/3ed5502ae8.js" crossorigin="anonymous"></script>
+  <!-- Esto no se que es -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <!-- Contenedor para poner el boton de configuracion -->
+  <div class="container contenedor-boton">
+    <div class="row">
+      <div class="col-12">
+        <div class="configuracion">
+          <a href="/iniciar-sesion"><i class="fa-solid fa-power-off fa-xl" style="color: #e9b384;"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Contenedor para la información propia del perfil -->
+  <div class="container contenedor-perfil">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-7">
+            <!--Informacion del perfil-->
+            <!-- Boton para cerrar sesion -->
+            <p class="nombre">{{usuario.nombre}}</p>
+            <p class="info-adicional text-wrap">{{usuario.correo}}</p>
+          </div>
+          <div class="col-5">
+            <!-- Foto de perfil -->
+            <img src="img/user-sin-fondo.png" alt="Foto de perfil" class="foto-de-perfil">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor para las comunidades y servicios y entidades de interes -->
+  <div class="container contenedor-categorias">
+    <div class="row">
+
+      <div class="col-12 categoria mx-auto">
+        <a href="comunidades/miscomunidades" class="enlace-sin-estilo">
+          <div class="row alto-fila">
+            <div class="col-3 d-flex align-items-center justify-content-center">
+              <i class="fa-solid fa-people-group fa-3x" style="color: #e9b384;"></i>
+            </div>
+            <div class="col-9 d-flex align-items-center">
+              <p class="texto-categorias">Comunidades</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-12 categoria mx-auto">
+        <a href="entidades/misentidadesinteres" class="enlace-sin-estilo">
+          <div class="row alto-fila">
+            <div class="col-3 d-flex align-items-center justify-content-center">
+              <i class="fa-solid fa-building-user fa-3x" style="color: #e9b384;"></i>
+            </div>
+            <div class="col-9 d-flex align-items-center">
+              <p class="texto-categorias">Entidades de interés</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+        <div class="col-12 categoria mx-auto">
+            <a href="/servicios/misservicios" class="enlace-sin-estilo">
+                <div class="row alto-fila">
+                    <div class="col-3 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-building-user fa-3x" style="color: #e9b384;"></i>
+                    </div>
+                    <div class="col-9 d-flex align-items-center">
+                        <p class="texto-categorias">Servicios de interes</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+    </div>
+  </div>
+
+  <!-- Barra de navegación inferior -->
+  <footer>
+    <div class="container barra-navegacion">
+      <div class="row">
+        <div class="col-12">
+          <ul class="nav justify-content-center">
+            <li class="nav-item iconos">
+              <a class="nav-link navegacion-no-seleccionado" href="incidentes">
+                <i class="fa-solid fa-house-circle-exclamation fa-2xl" style="color: #ffffff;"></i>
+              </a>
+            </li>
+            <li class="nav-item iconos">
+              <a class="nav-link navegacion-no-seleccionado" aria-current="page">
+                <i class="fa-solid fa-user fa-2xl" style="color: #808080;"></i>
+              </a>
+            </li>
+            <li class="nav-item iconos">
+              <a class="nav-link navegacion-no-seleccionado" href="configuracion">
+                <i class="fa-solid fa-gear fa-2xl" style="color: #ffffff;"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
