@@ -22,17 +22,22 @@ import java.util.function.Consumer;
 import java.text.SimpleDateFormat;
 import org.hibernate.cfg.Configuration;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 public class Server {
     private static Javalin app = null;
+    private static EntityManagerFactory entityManagerFactory = null;
 
     public static Javalin app() {
-        if(app == null)
+        if (app == null)
             throw new RuntimeException("App no inicializada");
         return app;
     }
 
     public static void init() {
-        if(app == null) {
+        if (app == null) {
             PrettyProperties.getInstance();
             Integer port = Integer.parseInt(System.getProperty("port", "8080"));
             app = Javalin.create(config()).start(port);
@@ -40,18 +45,23 @@ public class Server {
             AppHandlers.applyHandlers(app);
             Router.init();
 
-            if(Boolean.parseBoolean(PrettyProperties.getInstance().propertyFromName("dev_mode"))) {
+            if (Boolean.parseBoolean(PrettyProperties.getInstance().propertyFromName("dev_mode"))) {
                 Initializer.init();
             }
 
-            Configuration configuration = new Configuration();
-            configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://dpg-cl8jutf6e7vc73a76bq0-a.oregon-postgres.render.com:5432/persistenciatp");
-            configuration.setProperty("hibernate.connection.username", "tp");
-            configuration.setProperty("hibernate.connection.password", "nr8cZK5SIFz5RJBFpD7NkuckvUgGLSi1");
+            // Configuración de Hibernate
+            if (entityManagerFactory == null) {
+                Configuration configuration = new Configuration();
+                configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://dpg-cl8jutf6e7vc73a76bq0-a.oregon-postgres.render.com:5432/persistenciatp");
+                configuration.setProperty("hibernate.connection.username", "tp");
+                configuration.setProperty("hibernate.connection.password", "nr8cZK5SIFz5RJBFpD7NkuckvUgGLSi1");
 
+                // Otras configuraciones de Hibernate si es necesario
+
+                entityManagerFactory = Persistence.createEntityManagerFactory("simple-persistence-unit", configuration.getProperties());
+            }
         }
     }
-
 
     private static Consumer<JavalinConfig> config() {
         return config -> {
@@ -62,6 +72,14 @@ public class Server {
             AuthMiddleware.apply(config);
         };
     }
+
+    public static EntityManager createEntityManager() {
+        if (entityManagerFactory == null) {
+            throw new RuntimeException("EntityManagerFactory no inicializado");
+        }
+        return entityManagerFactory.createEntityManager();
+    }
+
 
     private static void initTemplateEngine() {
         Handlebars handlebars = new Handlebars();
@@ -100,3 +118,5 @@ public class Server {
         );
     }
 }
+
+
