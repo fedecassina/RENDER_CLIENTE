@@ -67,7 +67,7 @@ public static EntityManagerFactory createEntityManagerFactory() throws Exception
         String username2 = "tp";
         String password2 = "nr8cZK5SIFz5RJBFpD7NkuckvUgGLSi1";
 
-        value2 = "postgres://dpg-cl8jutf6e7vc73a76bq0-a.oregon-postgres.render.com:5432/persistenciatp";
+        value2 = "jdbc:postgresql://dpg-cl8jutf6e7vc73a76bq0-a.oregon-postgres.render.com:5432/persistenciatp";
         configOverrides.put("javax.persistence.jdbc.url", value2);
         configOverrides.put("javax.persistence.jdbc.user", username2);
         configOverrides.put("javax.persistence.jdbc.password", password2);
