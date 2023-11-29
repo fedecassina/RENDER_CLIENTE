@@ -217,6 +217,11 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>domain.server.App</mainClass>
+                        </manifest>
+                    </archive>
                     <descriptors>
                         <descriptor>src/main/assembly/assembly.xml</descriptor>
                     </descriptors>
