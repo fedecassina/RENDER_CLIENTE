@@ -3,11 +3,17 @@ package domain.server.init;
 import domain.models.entities.roles.Permiso;
 import domain.models.entities.roles.Rol;
 import domain.models.entities.roles.TipoRol;
+import domain.server.Server;
 import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
 
+import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 
 public class Initializer implements WithSimplePersistenceUnit {
+
+     static EntityManager entityManager = Server.createEntityManager();
+
 
     public static void init() {
         new Initializer()
@@ -19,12 +25,12 @@ public class Initializer implements WithSimplePersistenceUnit {
     }
 
     private Initializer iniciarTransaccion() {
-        entityManager().getTransaction().begin();
+        entityManager.getTransaction().begin();
         return this;
     }
 
     private Initializer commitearTransaccion() {
-        entityManager().getTransaction().commit();
+        entityManager.getTransaction().commit();
         return this;
     }
 
@@ -39,25 +45,23 @@ public class Initializer implements WithSimplePersistenceUnit {
                 { "Cargar establecimientos", "cargar_establecimientos"},
                 // ACÁ HAY QUE VER QUE OTROS PERMISOS PODEMOS NECESITAR
         };
-
-        BuscadorDePermisos buscadorDePermisos = new BuscadorDePermisos() {};
         
         for(String[] unPermiso: permisos) {
-            if (buscadorDePermisos.buscarPermisoPorNombre(unPermiso[1]) == null) {
+            if (this.buscarPermisoPorNombre(unPermiso[1]) == null) {
                 Permiso permiso = new Permiso();
                 permiso.setNombre(unPermiso[0]);
                 permiso.setNombreInterno(unPermiso[1]);
-                entityManager().persist(permiso);
+                entityManager.persist(permiso);
             }
         }
 
         return this;
     }
 
-    private interface BuscadorDePermisos extends WithSimplePersistenceUnit {
+    /*private interface BuscadorDePermisos extends WithSimplePersistenceUnit {
         default Permiso buscarPermisoPorNombre(String nombre) {
             try {
-                return (Permiso) entityManager()
+                return (Permiso) entityManager
                         .createQuery("from " + Permiso.class.getName() + " where nombreInterno = :nombre")
                         .setParameter("nombre", nombre)
                         .getSingleResult();
@@ -65,12 +69,54 @@ public class Initializer implements WithSimplePersistenceUnit {
                    return null;
             }
         }
+    }*/
+
+    /* public Permiso buscarPermisoPorNombre(String nombre) {
+        try {
+            return (Permiso) entityManager
+                    .createQuery("from " + Permiso.class.getName() + " where nombreInterno = :nombre")
+                    .setParameter("nombre", nombre)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    } */
+
+    public Permiso buscarPermisoPorNombre(String nombre) {
+        try {
+            Query query = entityManager.createQuery("from Permiso where nombreInterno = :nombre");
+            query.setParameter("nombre", nombre);
+            return (Permiso) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
-    private interface BuscadorDeRoles extends WithSimplePersistenceUnit {
+    public static Rol buscarRolPorNombre(String nombre) {
+        try {
+            Query query = entityManager.createQuery("from Rol where nombre = :nombre");
+            query.setParameter("nombre", nombre);
+            return (Rol) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    /* public Rol buscarRolPorNombre(String nombre) {
+        try {
+            return (Rol) entityManager
+                    .createQuery("from " + Rol.class.getName() + " where nombre = :nombre")
+                    .setParameter("nombre", nombre)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    } */
+
+    /*private interface BuscadorDeRoles extends WithSimplePersistenceUnit {
         default Rol buscarRolPorNombre(String nombre) {
             try {
-                return (Rol) entityManager()
+                return (Rol) entityManager
                         .createQuery("from " + Rol.class.getName() + " where nombre = :nombre")
                         .setParameter("nombre", nombre)
                         .getSingleResult();
@@ -78,47 +124,47 @@ public class Initializer implements WithSimplePersistenceUnit {
                 return null;
             }
         }
-    }
+    }*/
     private Initializer roles() {
-        BuscadorDePermisos buscadorDePermisos = new BuscadorDePermisos() {};
-        BuscadorDeRoles buscadorDeRoles = new BuscadorDeRoles() {};
+        /*BuscadorDePermisos buscadorDePermisos = new BuscadorDePermisos() {};
+        BuscadorDeRoles buscadorDeRoles = new BuscadorDeRoles() {};*/
 
-        if (buscadorDeRoles.buscarRolPorNombre("Administrador") == null) {
+        if (this.buscarRolPorNombre("Administrador") == null) {
             Rol administrador = new Rol();
             administrador.setNombre("Administrador");
             administrador.setTipo(TipoRol.ADMINISTRADOR);
             administrador.agregarPermisos(
-                    buscadorDePermisos.buscarPermisoPorNombre("administrar_usuarios"),
-                    buscadorDePermisos.buscarPermisoPorNombre("crear_comunidades"),
-                    buscadorDePermisos.buscarPermisoPorNombre("ver_rankings"),
-                    buscadorDePermisos.buscarPermisoPorNombre("crear_entidades"),
-                    buscadorDePermisos.buscarPermisoPorNombre("crear_servicios"),
-                    buscadorDePermisos.buscarPermisoPorNombre("carga_masiva_de_datos"),
-                    buscadorDePermisos.buscarPermisoPorNombre("cargar_establecimientos")
+                    this.buscarPermisoPorNombre("administrar_usuarios"),
+                    this.buscarPermisoPorNombre("crear_comunidades"),
+                    this.buscarPermisoPorNombre("ver_rankings"),
+                    this.buscarPermisoPorNombre("crear_entidades"),
+                    this.buscarPermisoPorNombre("crear_servicios"),
+                    this.buscarPermisoPorNombre("carga_masiva_de_datos"),
+                    this.buscarPermisoPorNombre("cargar_establecimientos")
             );
-            entityManager().persist(administrador);
+            entityManager.persist(administrador);
         }
 
-        if (buscadorDeRoles.buscarRolPorNombre("Comun") == null) {
+        if (this.buscarRolPorNombre("Comun") == null) {
             Rol consumidor = new Rol();
             consumidor.setNombre("Comun");
             consumidor.setTipo(TipoRol.NORMAL);
             consumidor.agregarPermisos(
             );
-            entityManager().persist(consumidor);
+            entityManager.persist(consumidor);
         }
 
-        if (buscadorDeRoles.buscarRolPorNombre("Prestador") == null) {
+        if (this.buscarRolPorNombre("Prestador") == null) {
             Rol prestador = new Rol();
             prestador.setNombre("Prestador");
             prestador.setTipo(TipoRol.NORMAL);
             prestador.agregarPermisos(
-                    buscadorDePermisos.buscarPermisoPorNombre("ver_rankings"),
-                    buscadorDePermisos.buscarPermisoPorNombre("crear_entidades"),
-                    buscadorDePermisos.buscarPermisoPorNombre("crear_servicios"),
-                    buscadorDePermisos.buscarPermisoPorNombre("cargar_establecimientos")
+                    this.buscarPermisoPorNombre("ver_rankings"),
+                    this.buscarPermisoPorNombre("crear_entidades"),
+                    this.buscarPermisoPorNombre("crear_servicios"),
+                    this.buscarPermisoPorNombre("cargar_establecimientos")
             );
-            entityManager().persist(prestador);
+            entityManager.persist(prestador);
         }
 
         return this;

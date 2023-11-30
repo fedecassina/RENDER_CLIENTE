@@ -9,6 +9,7 @@ import domain.models.entities.roles.Rol;
 import domain.models.entities.usuario.Persona;
 import domain.models.repositories.RepositorioDeRoles;
 import domain.models.repositories.RepositorioDeUsuarios;
+import domain.server.init.Initializer;
 import domain.server.utils.ICrudViewsHandler;
 import io.javalin.http.Context;
 import io.javalin.http.HttpStatus;
@@ -115,7 +116,8 @@ public class SesionesController extends Controller implements ICrudViewsHandler 
             persona.setMedioDeRecibirNotificacion(notificadorMAIL);
         }
 
-        persona.setRol((Rol) this.repositorioDeRoles.buscar(9L));
+        // persona.setRol((Rol) this.repositorioDeRoles.buscar(9L));
+        persona.setRol((Rol) Initializer.buscarRolPorNombre("Comun"));
     }
 
     public void config(Context context) {

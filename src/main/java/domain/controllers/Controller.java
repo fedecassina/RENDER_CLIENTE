@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 
 public abstract class Controller implements WithSimplePersistenceUnit {
     EntityManager entityManager = Server.createEntityManager();
-    
+
     protected Persona usuarioLogueado(Context ctx) {
         if(ctx.sessionAttribute("usuario_id") == null)
             return null;

@@ -21,6 +21,9 @@ public class RepositorioDeRoles implements WithSimplePersistenceUnit, ICrudRepos
     public Object buscar(Long id) {
         return entityManager.find(Rol.class, id);
     }
+    public Object buscarPorNombre(String nombre) {
+        return entityManager.find(Rol.class, nombre);
+    }
 
     @Override
     public void guardar(Object o) {

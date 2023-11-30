@@ -12,6 +12,7 @@ import domain.models.entities.usuario.Persona;
 import domain.models.repositories.RepositorioDeCargaEntidades;
 import domain.models.repositories.RepositorioDeRoles;
 import domain.models.repositories.RepositorioDeUsuarios;
+import domain.server.init.Initializer;
 import domain.server.utils.ICrudViewsHandler;
 import io.javalin.http.Context;
 import io.javalin.http.HttpStatus;
@@ -182,13 +183,16 @@ public class UsuariosController extends Controller implements ICrudViewsHandler 
 
         switch (context.formParam("rol")) {
             case "Administrador":
-                persona.setRol((Rol) this.repositorioDeRoles.buscar(8L));
+                persona.setRol((Rol) Initializer.buscarRolPorNombre("Administrador"));
+                // persona.setRol((Rol) this.repositorioDeRoles.buscar(8L));
                 break;
             case "Prestador":
-                persona.setRol((Rol) this.repositorioDeRoles.buscar(10L));
+                persona.setRol((Rol) Initializer.buscarRolPorNombre("Prestador"));
+                // persona.setRol((Rol) this.repositorioDeRoles.buscar(10L));
                 break;
             default:
-                persona.setRol((Rol) this.repositorioDeRoles.buscar(9L));
+                persona.setRol((Rol) Initializer.buscarRolPorNombre("Comun"));
+                // persona.setRol((Rol) this.repositorioDeRoles.buscar(9L));
         }
     }
 
