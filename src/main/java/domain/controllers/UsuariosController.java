@@ -98,20 +98,23 @@ public class UsuariosController extends Controller implements ICrudViewsHandler 
         switch (rankingDeseado){
             case "incidentes":{
                 String rankingIncidentes = ranking.mayorCantidadDeIncidentes(entidadPrestadora);
-                informe.exportarAPDF(rankingIncidentes,"src/main/resources/public/rankingIncidentes.pdf");
-                contenido = Files.readAllBytes(Paths.get("src/main/resources/public/rankingIncidentes.pdf"));
+                String path = getClass().getResource("/public/rankingIncidentes.pdf").getPath();
+                informe.exportarAPDF(rankingIncidentes,path);
+                contenido = Files.readAllBytes(Paths.get(path));
                 break;
             }
             case "cierres":{
                 String rankingCierres = ranking.mayorPromedioDeCierres(entidadPrestadora);
-                informe.exportarAPDF(rankingCierres,"src/main/resources/public/rankingCierres.pdf");
-                contenido = Files.readAllBytes(Paths.get("src/main/resources/public/rankingCierres.pdf"));
+                String path = getClass().getResource("/public/rankingCierres.pdf").getPath();
+                informe.exportarAPDF(rankingCierres,path);
+                contenido = Files.readAllBytes(Paths.get(path));
                 break;
             }
             case "impacto":{
                 String rankingImpacto = ranking.mayorImpactoDeLasProblematicas(entidadPrestadora);
-                informe.exportarAPDF(rankingImpacto,"src/main/resources/public/rankingImpacto.pdf");
-                contenido = Files.readAllBytes(Paths.get("src/main/resources/public/rankingImpacto.pdf"));
+                String path = getClass().getResource("/public/rankingImpacto.pdf").getPath();
+                informe.exportarAPDF(rankingImpacto,path);
+                contenido = Files.readAllBytes(Paths.get(path));
                 break;
             }
         }
